@@ -11,6 +11,12 @@
 const cors = require('cors'); 
 const cookieParser = require('cookie-parser');
 
+/**
+ * custom modules
+ */
+const login = require('./src/routes/login.route');
+
+
 // initialize express app
 const express = require('express');
 const app = express();
@@ -33,9 +39,7 @@ app.use(cors()).use(cookieParser());
 /**
  * Login page
  */
-app.get('/login', (req, res) => { 
-    res.send('Login page');
-});
+app.use('/login', login);
 
 app.listen(5000, () => {
     console.log('Server is running on http://localhost:5000');
